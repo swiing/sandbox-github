@@ -20,6 +20,6 @@ jobs:
       uses: actions/github-script@v3
       with:
         script: |
-            core.setFailed('Action failed with ${{ failure() }}')
+            core.setFailed('Action failed with error')
     - name: Print message if we don't fail
       run: echo Should not get here
