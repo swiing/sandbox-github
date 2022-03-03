@@ -15,5 +15,11 @@ jobs:
     - uses: actions/checkout@v1
     - name: Try to fail
       run: exit 1
+    - name: Step To run on failure
+      if: ${{ failure() }}
+      uses: actions/github-script@v3
+      with:
+        script: |
+            core.setFailed('Action failed with ${{ failure() }}')
     - name: Print message if we don't fail
       run: echo Should not get here
